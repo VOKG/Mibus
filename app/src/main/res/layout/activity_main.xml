@@ -6,30 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/draw_btn"
+            app:popupTheme= "@style/Theme.AppCompat.DayNight.DarkActionBar"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <fragment
-            xmlns:map="http://schemas.android.com/apk/res-auto"
-            class="com.google.android.gms.maps.SupportMapFragment"
             android:id="@+id/map_fragment"
+            class="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            map:mapId="YOUR_MAP_ID" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="63dp"
-            android:layout_height="59dp"
-            android:clickable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.153"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/map_fragment"
-            app:layout_constraintVertical_bias="0.941"
-            app:srcCompat="@android:drawable/ic_menu_zoom" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:mapId="YOUR_MAP_ID" />
+
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@drawable/draw_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/map_fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_weight="50"
+                android:layout_height="match_parent"
+                android:text="Hello, User 🎉"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintVertical_bias="0.514" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_weight="50"
+                android:layout_height="match_parent"
+                android:text="Hello, User 🎉"
+                android:textColor="@color/white"
+                android:textColorHighlight="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintVertical_bias="0.514" />
+
+
+
+        </LinearLayout>
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

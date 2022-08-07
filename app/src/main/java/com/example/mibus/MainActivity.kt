@@ -19,7 +19,17 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "MIBUS"
+
+
+
+       // setSupportActionBar(binding.toolbar)
+
+
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map_fragment) as? SupportMapFragment
