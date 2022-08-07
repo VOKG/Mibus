@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "MIBUS"
+
+
+
        // setSupportActionBar(binding.toolbar)
 
 

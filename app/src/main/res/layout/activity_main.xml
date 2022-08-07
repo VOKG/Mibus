@@ -15,9 +15,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_gravity="bottom"
             android:layout_height="?attr/actionBarSize"
-            android:background="#1C1B1B"
+            android:background="@drawable/draw_btn"
             app:popupTheme= "@style/Theme.AppCompat.DayNight.DarkActionBar"/>
 
     </com.google.android.material.appbar.AppBarLayout>
