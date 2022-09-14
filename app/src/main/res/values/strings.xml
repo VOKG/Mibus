@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Mibus</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="text_view_user">Hello User</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_btn"><![CDATA[MAP ->]]></string>
+    <string name="btn_map_return">USER INFO</string>
 </resources>

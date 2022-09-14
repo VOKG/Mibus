@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="TextViewBus">
+        <item name="android:fontFamily">@font/alatsi</item>
+        <item name="android:background">@drawable/draw_btn</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text_size_map</item>
+
+
+    </style>
+    
+    
+</resources>
