@@ -6,4 +6,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="user_btn"><![CDATA[MAP ->]]></string>
     <string name="btn_map_return">USER INFO</string>
+    <string name="map_toolbar_title">"MAP USER "</string>
 </resources>

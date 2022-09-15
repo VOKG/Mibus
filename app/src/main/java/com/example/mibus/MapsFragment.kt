@@ -3,9 +3,10 @@ package com.example.mibus
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuHost
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.example.mibus.ViewModel.ViewModel
@@ -35,7 +36,21 @@ class MapsFragment : Fragment(), ViewModel {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map_Id) as SupportMapFragment
         mapFragment.getMapAsync(callback)
         binding.btnMapUserInfo.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.userFragmentId))
+        val toolbar = binding.mibusToolbar
+        (requireActivity() as  AppCompatActivity).setSupportActionBar(toolbar)
+
+        val menuHost: MenuHost = requireActivity()
+
+
+
         return binding.root
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun setPointClick(map:GoogleMap) {
