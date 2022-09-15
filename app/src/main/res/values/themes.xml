@@ -12,9 +12,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:drawableBottom">@drawable/draw_btn</item>
+       <item name="android:drawableBottom">@drawable/draw_btn</item>
         <item name="android:button">@id/dark</item>
 
+        <!-- -->
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
