@@ -49,9 +49,7 @@ class MapsFragment : Fragment(), ViewModel {
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-    }
+
 
     override fun setPointClick(map:GoogleMap) {
         map.setOnPoiClickListener{
