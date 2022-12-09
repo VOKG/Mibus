@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".AuthFragment">
+    tools:context=".authorization.AuthFragment">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/authFragmentId"
@@ -28,21 +28,39 @@
     <TextView
         android:id="@+id/btn_auth"
         style="@style/TextViewBus"
-        app:fontFamily="@font/audiowide"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="280dp"
         android:padding="8dp"
         android:text="@string/text_authorization"
         app:autoSizeTextType="uniform"
+        app:fontFamily="@font/audiowide"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNameApp" />
+
+
+    <TextView
+        android:id="@+id/btn_sing_up"
+        style="@style/TextViewBus"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="    Sing Up  "
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/audiowide"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_auth"
+        app:layout_constraintVertical_bias="0.48000002" />
 
     <TextView
         android:id="@+id/textNameApp"

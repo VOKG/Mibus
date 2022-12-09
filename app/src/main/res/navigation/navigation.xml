@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/authFragmentId">
+
     <fragment
         android:id="@+id/authFragmentId"
-        android:name="com.example.mibus.AuthFragment"
+        android:name="com.example.mibus.authorization.AuthFragment"
         android:label="fragment_auth"
         tools:layout="@layout/fragment_auth" >
         <action
@@ -16,18 +17,25 @@
 
     <fragment
         android:id="@+id/userFragmentId"
-        android:name="com.example.mibus.UserFragment"
+        android:name="com.example.mibus.user.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" >
         <action
             android:id="@+id/action_userFragment4_to_mapsFragment5"
             app:destination="@id/mapFragmentId" />
+        <action
+            android:id="@+id/action_userFragmentId_to_mapListFragment"
+            app:destination="@id/mapListFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/mapFragmentId"
-        android:name="com.example.mibus.MapsFragment"
+        android:name="com.example.mibus.busmap.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/mapListFragment"
+        android:name="com.example.mibus.map_list.MapListFragment"
+        android:label="MapListFragment" />
 
 </navigation>
