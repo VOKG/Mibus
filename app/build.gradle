@@ -1,61 +1,101 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
-    compileSdk 33
-
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.example.mibus"
         minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
     buildFeatures {
         dataBinding true
         viewBinding true
     }
 
+    buildscript {
+        repositories {
+            google()
+        }
+
+        dependencies {
+            def version_navigation = "2.4.2"
+            def version_gradle = "4.0.1"
+            def version_kotlin = "1.3.72"
+            classpath "com.android.tools.build:gradle:$version_gradle"
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
+            classpath "com.google.android:secrets-gradle-plugin:1.1.0"
+            classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$version_navigation"
+        }
+    }
+
 }
+
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
+    def version_core = "1.9.0"
+    def version_coroutine = "1.3.7"
+    def version_constraint_layout = "2.1.4"
+    def version_lifecycle_extensions = "2.2.0"
+    def version_lifecycle = "2.2.0"
+    def version_room = "2.4.3"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Support libraries
+    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
-    implementation 'androidx.databinding:databinding-runtime:7.2.2'
-
+    // Android KTX
+    implementation "androidx.core:core-ktx:$version_core"
+    // Room and Lifecycle dependencies
+    implementation "androidx.room:room-runtime:$version_room"
+    kapt "androidx.room:room-compiler:$version_room"
+    implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
+    implementation "androidx.room:room-common:$version_room"
+    implementation "androidx.room:room-ktx:$version_room"
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    //binding
+    implementation 'androidx.databinding:databinding-runtime:7.3.0'
+    //
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    //maps
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
-
+    // Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-
 
 
 }

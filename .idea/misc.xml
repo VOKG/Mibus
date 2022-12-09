@@ -8,6 +8,7 @@
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/drawable/draw_btn.xml" value="0.2605" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/drawable/ic_launcher_background.xml" value="0.247" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/drawable/ic_mi_bus.xml" value="0.3875" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/drawable/myrect.xml" value="0.2015" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/drawable/tool_bar_bus.xml" value="0.206" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/font/alatsi.xml" value="0.35644444444444445" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/font/alatsi_font_bus.xml" value="0.35555555555555557" />
@@ -16,10 +17,14 @@
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/activity_maps.xml" value="0.25" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/busfragment_maps.xml" value="0.2671875" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/fragment_auth.xml" value="0.33" />
-        <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/fragment_maps.xml" value="0.25" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/fragment_maps.xml" value="0.33" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/fragment_user.xml" value="0.22" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/my_tool_bar.xml" value="0.16282051282051282" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/nav_header.xml" value="0.30104166666666665" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/layout/nav_hender.xml" value="0.3500905797101449" />
         <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/menu/menu_main.xml" value="0.38645833333333335" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/menu/nav_draw_menu.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/vladi/AndroidStudioProjects/Mibus/app/src/main/res/menu/naw_drawer_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

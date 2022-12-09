@@ -2,6 +2,8 @@
 <resources>
     <dimen name="margin_wide">16dp</dimen>
     <dimen name="margin_start">725dp</dimen>
+    <dimen name="margin">16dp</dimen>
     <dimen name="wrap_height">50dp</dimen>
     <dimen name="text_size_map">16sp</dimen>
+    <dimen name="text_size_sing_up">26sp</dimen>
 </resources>

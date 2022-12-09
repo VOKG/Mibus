@@ -6,8 +6,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="user_btn"><![CDATA[MAP ->]]></string>
     <string name="btn_map_return">USER INFO</string>
+    <string name="btn_map_data">NEXT POINT</string>
     <string name="map_toolbar_title">"MAP USER "</string>
     <string name="app_info_git">https://github.com/VOKG/Mibus</string>
     <string name="text_authorization">Authorization</string>
     <string name="name_app_mibus">MiBus</string>
+    <string name="user_info">User info</string>
+    <string name="btn_clear">CLEAR</string>
+    <string name="btn_push_list">LIST</string>
 </resources>
