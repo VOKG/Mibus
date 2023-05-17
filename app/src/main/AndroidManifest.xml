@@ -9,8 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name=".PusherApplication"
-        android:allowBackup="true"
+        android:name=".debug.PusherApplication"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -34,9 +34,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAUozPyJDQo-pkaxKEAKkPl9ANLcu4_wJc" />
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+       <meta-data
+           android:name="preloaded_fonts"
+           android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".MainActivity"

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+   <data>
+
+      <variable
+          name="city"
+          type="com.example.mibus.schedule_list_screen.database.MapBusData"/>
+
+      <variable
+          name="clickListener"
+          type="com.example.mibus.schedule_list_screen.MapListListener" />
+
+   </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="?android:attr/selectableItemBackground">
+
+      <ImageView
+          android:id="@+id/clock"
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="8dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@mipmap/locationbus" />
+
+      <TextView
+          android:id="@+id/textView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="4dp"
+          app:layout_constraintBottom_toTopOf="@+id/textView4"
+          app:layout_constraintStart_toEndOf="@+id/clock"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/textView4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginBottom="8dp"
+          android:text="@string/text_view_user"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/clock"
+          app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+      <ImageView
+          android:id="@+id/imageView3"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="16dp"
+          android:layout_marginBottom="8dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.993"
+          app:layout_constraintStart_toEndOf="@+id/textView4"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@mipmap/right" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+    <!--  android:onClick="@{()->clickListener.onClick(city)}"-->
