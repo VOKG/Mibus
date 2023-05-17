@@ -3,23 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/authFragmentId">
-
-    <fragment
-        android:id="@+id/authFragmentId"
-        android:name="com.example.mibus.authorization.AuthFragment"
-        android:label="fragment_auth"
-        tools:layout="@layout/fragment_auth" >
-        <action
-            android:id="@+id/action_authFragmentId_to_userFragmentId"
-            app:destination="@id/userFragmentId" />
-    </fragment>
+    app:startDestination="@id/userFragmentId">
 
     <fragment
         android:id="@+id/userFragmentId"
-        android:name="com.example.mibus.user.UserFragment"
+        android:name="com.example.mibus.schedule_editor_screen.presentation.UserFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user" >
+        tools:layout="@layout/fragment_user">
         <action
             android:id="@+id/action_userFragment4_to_mapsFragment5"
             app:destination="@id/mapFragmentId" />
@@ -30,12 +20,33 @@
 
     <fragment
         android:id="@+id/mapFragmentId"
-        android:name="com.example.mibus.busmap.MapsFragment"
+        android:name="com.example.mibus.busmap_screen.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/mapListFragment"
-        android:name="com.example.mibus.map_list.MapListFragment"
-        android:label="MapListFragment" />
+        android:name="com.example.mibus.schedule_list_screen.presentation.MapListFragment"
+        android:label="MapListFragment" >
+        <action
+            android:id="@+id/action_mapListFragment_to_screenEditorScheduleFragment"
+            app:destination="@id/screenEditorScheduleFragmentId" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/screenEditorScheduleFragmentId"
+        android:name="com.example.mibus.schedule_editor_screen.presentation.ScreenEditorScheduleFragment"
+        tools:layout="@layout/fragment_screen_editor_schedule"
+        android:label="ScreenEditorScheduleFragment" >
+        <action
+            android:id="@+id/action_screenEditorScheduleFragmentId_to_mapListFragment"
+            app:destination="@id/mapListFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/mapListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="pointIdKey"
+            app:argType="long"
+            android:defaultValue="1L" />
+    </fragment>
 
 </navigation>

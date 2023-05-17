@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="preloaded_fonts" translatable="false">
-        <item>@font/alatsi</item>
-        <item>@font/audiowide</item>
-    </array>
+   <array name="preloaded_fonts" translatable="false">
+      <item>@font/oxygen</item>
+      <item>@font/play</item>
+   </array>
 </resources>

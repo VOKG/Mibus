@@ -2,86 +2,71 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".busmap.MapsFragment">
+    tools:context=".busmap_screen.MapsFragment">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/mapFragmentId"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/map_Id"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+   <androidx.fragment.app.FragmentContainerView
+       android:id="@+id/map_Id"
+       android:name="com.google.android.gms.maps.SupportMapFragment"
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.0" />
+    <!---
+       <include
+           layout="@layout/layout_persistent_bottom_sheet"
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           app:layout_constraintBottom_toTopOf="@+id/map_Id"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/map_Id"
+           app:layout_constraintVertical_bias="0.168" /> -->
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_map_user_info"
-        style="@style/TextViewBus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/btn_map_return"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/btn_map_user_info"
+           style="@style/TextViewBus"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="16dp"
+           android:layout_marginEnd="16dp"
+           android:text="@string/btn_map_return"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias="0.85" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_map_data"
-        style="@style/TextViewBus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/btn_map_data"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.808" />
-
-    <include
-        android:id="@+id/menuToolBar"
-        layout="@layout/my_tool_bar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-    </include>
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/mibus_toolbar"
-        style="@style/TextViewBus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/draw_btn"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/btn_map_data"
+           style="@style/TextViewBus"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="16dp"
+           android:layout_marginEnd="16dp"
+           android:layout_marginBottom="16dp"
+           android:text="@string/btn_map_data"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/btn_map_user_info" />
 
 
 
-</layout>
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- android:background="@android:color/transparent"-->
+
+
+   </layout>
+
+       <!-- android:background="@android:color/transparent"-->
