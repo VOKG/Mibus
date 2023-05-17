@@ -82,17 +82,7 @@ class ScreenEditorScheduleFragment : Fragment() {
             mapBusListViewModel.doneNavigating()
          }
       })
-      /* sleepDetailViewModel.navigateToSleepTracker.observe(viewLifecycleOwner, Observer {
-          addDataTextEdit()
-          if (it == true) { // Observed state is true.
-             this.findNavController().navigate(
-                SleepDetailFragmentDirections.
-                actionSleepDetailFragmentToSleepTrackerFragment())
-             // Reset state to make sure we only navigate once, even if the device
-             // has a configuration change.
-             sleepDetailViewModel.doneNavigating()
-          }
-       })*/
+  
       // Inflate the layout for this fragment
       return binding.root
    }
