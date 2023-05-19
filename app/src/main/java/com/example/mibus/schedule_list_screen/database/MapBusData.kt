@@ -1,10 +1,12 @@
 package com.example.mibus.schedule_list_screen.database
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 @Entity(tableName = "map_coordinate_city_table")
 data class MapBusData(
     @PrimaryKey(autoGenerate = true)
@@ -15,7 +17,7 @@ data class MapBusData(
     var longitude: Double = 0.0,
     @ColumnInfo(name = "title")
     var title: String = ""
-)
+):Parcelable
 
 
 

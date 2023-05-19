@@ -93,6 +93,21 @@ class EditorScheduleModel(
       }
    }
 
+   fun deletePointMapCity(pointCity:Long) {
+      uiScope.launch {
+         delete(pointCity)
+
+         toCityPoint.value = getMapCityFromDatabase()
+
+      }
+   }
+
+   private suspend fun delete(pointCity: Long) {
+      withContext(Dispatchers.IO) {
+         dataBase.delete(pointCity)
+      }
+   }
+
 
 }
 
