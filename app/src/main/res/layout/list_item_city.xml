@@ -8,7 +8,7 @@
 
       <variable
           name="city"
-          type="com.example.mibus.schedule_list_screen.database.MapBusData"/>
+          type="com.example.mibus.model.StopPointData"/>
 
       <variable
           name="clickListener"

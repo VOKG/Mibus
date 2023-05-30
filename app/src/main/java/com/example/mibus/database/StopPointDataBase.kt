@@ -1,20 +1,21 @@
-package com.example.mibus.schedule_list_screen.database
+package com.example.mibus.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.mibus.model.StopPointData
 
-@Database(entities = [MapBusData::class], version = 1, exportSchema = false)
-abstract class MapBusDataBase:RoomDatabase() {
+@Database(entities = [StopPointData::class], version = 1, exportSchema = false)
+abstract class StopPointDataBase:RoomDatabase() {
 
-    abstract fun mapDatabasedao(): MapBusDataDao
+    abstract fun stopPointDataDao(): StopPointDataDao
 
     companion object{
         @Volatile
-        private var INSTANCE: MapBusDataBase? = null
+        private var INSTANCE: StopPointDataBase? = null
 
-        fun getInstance(context:Context): MapBusDataBase {
+        fun getInstance(context:Context): StopPointDataBase {
 
             val instance = INSTANCE
             if (instance != null) {
@@ -23,7 +24,7 @@ abstract class MapBusDataBase:RoomDatabase() {
                 synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    MapBusDataBase::class.java,
+                    StopPointDataBase::class.java,
                     "city_base_map"
                 ).build()
                 INSTANCE = instance

@@ -1,6 +1,5 @@
 package com.example.mibus.schedule_list_screen.presentation
 
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,22 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mibus.R
 import com.example.mibus.databinding.FragmentMapListBinding
-import com.example.mibus.databinding.ScheduleBottomSheetBinding
 import com.example.mibus.schedule_list_screen.MapListAdapter
 import com.example.mibus.schedule_list_screen.MapListListener
-import com.example.mibus.schedule_list_screen.database.MapBusDataBase
+import com.example.mibus.database.StopPointDataBase
 import com.example.mibus.schedule_list_screen.model.MapListViewModel
 import com.example.mibus.schedule_list_screen.model.MapListViewModelFactory
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.divider.MaterialDividerItemDecoration
 
 /*Start class MapListFragment*/
 class MapListFragment : Fragment() {
@@ -45,8 +38,8 @@ class MapListFragment : Fragment() {
         )*/
       /*****************************  initialization MapBusDataBase ******************************/
       val application = requireNotNull(this.activity).application
-      val dataSource = MapBusDataBase.getInstance(application).mapDatabasedao()
-      val viewModelFactory = MapListViewModelFactory(dataSource, application)
+      //val dataSource = StopPointDataBase.getInstance(application).mapDatabasedao()
+      val viewModelFactory = MapListViewModelFactory(application)
       val mapBusListViewModel =
          ViewModelProvider(this, viewModelFactory)[MapListViewModel::class.java]
 
@@ -78,7 +71,7 @@ class MapListFragment : Fragment() {
       })
       binding.mapListPointCity.adapter = adapter
 
-      mapBusListViewModel.mapCityPoints.observe(viewLifecycleOwner) {
+      mapBusListViewModel.readPointData.observe(viewLifecycleOwner) {
          it?.let {
             adapter.submitList(it) // заполнение данными лист
          }
