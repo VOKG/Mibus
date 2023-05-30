@@ -1,29 +1,31 @@
-package com.example.mibus.schedule_list_screen.database
+package com.example.mibus.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.example.mibus.model.StopPointData
 
 
 @Dao
-interface MapBusDataDao {
+interface StopPointDataDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert (city: MapBusData)
+    fun insert (point: StopPointData)
     @Update
-    fun update (city: MapBusData)
+    fun update (point: StopPointData)
     @Query("SELECT * from map_coordinate_city_table WHERE mapId = :key")
-    fun get (key:Long): MapBusData?
+    fun get (key:Long): StopPointData?
     @Query("DELETE FROM map_coordinate_city_table")
     fun clear()
-    @Query("DELETE FROM map_coordinate_city_table  WHERE  mapId = :key")
-    fun delete(key:Long)
+    @Delete
+    fun delete(point: StopPointData)
     @Query("SELECT * from map_coordinate_city_table ORDER BY mapId DESC")
-    fun getAllCity(): LiveData<List<MapBusData>>
+    fun getAllPoint(): LiveData<List<StopPointData>>
     @Query("SELECT * FROM  map_coordinate_city_table ORDER BY mapId DESC LIMIT 1")
-    fun getTocity(): MapBusData?
+    fun getTocity(): StopPointData?
     @Query("SELECT * from map_coordinate_city_table WHERE mapId = :key")
-    fun getCityWithId(key: Long): LiveData<MapBusData>
+    fun getPointWithId(key: Long): LiveData<StopPointData>
 }

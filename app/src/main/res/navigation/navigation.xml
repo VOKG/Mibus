@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_mapListFragment_to_screenEditorScheduleFragment"
             app:destination="@id/screenEditorScheduleFragmentId" />
+        <action
+            android:id="@+id/action_mapListFragment_to_updateEditorFragment"
+            app:destination="@id/ScreenUpdateEditor" />
     </fragment>
 
     <fragment
@@ -43,10 +46,23 @@
             app:launchSingleTop="false"
             app:popUpTo="@id/mapListFragment"
             app:popUpToInclusive="true" />
+        <argument android:name="currentPoint"
+            app:argType="com.example.mibus.model.StopPointData" />
         <argument
-            android:name="pointIdKey"
-            app:argType="long"
-            android:defaultValue="1L" />
+            android:name="idPoint"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/ScreenUpdateEditor"
+        android:name="com.example.mibus.schedule_update_screen.UpdateEditorFragment"
+        android:label="fragment_update_editor"
+        tools:layout="@layout/fragment_update_editor" >
+        <action
+            android:id="@+id/action_updateEditorFragment_to_mapListFragment"
+            app:destination="@id/mapListFragment" />
+        <argument
+            android:name="currentPoint"
+            app:argType="com.example.mibus.model.StopPointData" />
     </fragment>
 
 </navigation>

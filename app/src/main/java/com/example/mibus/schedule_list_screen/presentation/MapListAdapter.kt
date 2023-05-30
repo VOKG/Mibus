@@ -1,20 +1,18 @@
 package com.example.mibus.schedule_list_screen
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mibus.R
-import com.example.mibus.schedule_list_screen.database.MapBusData
+import com.example.mibus.model.StopPointData
 import com.example.mibus.databinding.ListItemCityBinding
 
 
 class MapListAdapter(private val clickListener: MapListListener) :
-   ListAdapter<MapBusData, MapListAdapter.ViewHolder>(MapListDiffCallback()) {
+   ListAdapter<StopPointData, MapListAdapter.ViewHolder>(MapListDiffCallback()) {
 
    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
       val item = getItem(position)
@@ -30,7 +28,7 @@ class MapListAdapter(private val clickListener: MapListListener) :
    class ViewHolder private constructor(val binding: ListItemCityBinding) :
       RecyclerView.ViewHolder(binding.root) {
 
-      fun bind(clickListener: MapListListener, item: MapBusData) {
+      fun bind(clickListener: MapListListener, item: StopPointData) {
          binding.city = item
          binding.clickListener = clickListener
          binding.textView4.text = item.latitude.toString()
@@ -52,19 +50,19 @@ class MapListAdapter(private val clickListener: MapListListener) :
 
 }
 
-class MapListDiffCallback : DiffUtil.ItemCallback<MapBusData>() {
+class MapListDiffCallback : DiffUtil.ItemCallback<StopPointData>() {
 
-   override fun areItemsTheSame(oldItem: MapBusData, newItem: MapBusData): Boolean {
+   override fun areItemsTheSame(oldItem: StopPointData, newItem: StopPointData): Boolean {
       return oldItem.mapId == newItem.mapId
    }
 
-   override fun areContentsTheSame(oldItem: MapBusData, newItem: MapBusData): Boolean {
+   override fun areContentsTheSame(oldItem: StopPointData, newItem: StopPointData): Boolean {
       return oldItem == newItem
    }
 }
 
 class MapListListener(val clickListener: (itemView: Long) -> Unit) {
-   fun onClick(city: MapBusData) = clickListener(city.mapId)
+   fun onClick(city: StopPointData) = clickListener(city.mapId)
 }
 
 

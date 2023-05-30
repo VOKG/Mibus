@@ -1,36 +1,41 @@
 package com.example.mibus.schedule_editor_screen.model
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mibus.schedule_list_screen.database.MapBusData
-import com.example.mibus.schedule_list_screen.database.MapBusDataDao
-import kotlinx.coroutines.CoroutineScope
+import com.example.mibus.Repository.MapBusRepository
+import com.example.mibus.model.StopPointData
+import com.example.mibus.database.StopPointDataBase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class EditorScheduleModel(
-   private val mapPointKey: Long = 0L,
-   dataSource: MapBusDataDao
-) : ViewModel() {
+   application: Application
+) : AndroidViewModel(application) {
 
-   val dataBase = dataSource
-   private val point = MediatorLiveData<MapBusData>()
+   // val dataBase = dataSource
+   // val readAllData: LiveData<List<StopPointData>>
+   private val _readPointData = MutableLiveData<StopPointData>()
+   val readPointData: LiveData<StopPointData>
+      get()=_readPointData
+
+   private val repository: MapBusRepository
+
 
    /////////////////////////////////////////////////////////////////////
-   private var viewModelJob = Job()
-   private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-   private var toCityPoint = MutableLiveData<MapBusData?>()
+   private var toCityPoint = MutableLiveData<StopPointData?>()
 
    /*-----------------------------------------------------------------------------------*/
-   fun getPoint() = point
+
 
    init {
-      point.addSource(dataBase.getCityWithId(mapPointKey), point::setValue)
+      val listPoints = StopPointDataBase.getInstance(application).stopPointDataDao()
+      repository = MapBusRepository(listPoints) // переименовать
+      // readAllData = repository.readAllData
+    //  readPointData = repository.getPointId()
    }
 
    private val _navigateToMapPoint = MutableLiveData<Boolean?>()
@@ -47,49 +52,29 @@ class EditorScheduleModel(
    }
 
    //-------------start coroutine-------------------------------* //
-   init {
-      initializeToMapsCity()
-   }
-
-   override fun onCleared() {
-      super.onCleared()
-      viewModelJob.cancel()
-   }
-
-   private fun initializeToMapsCity() {
-      uiScope.launch {
-         toCityPoint.value = getMapCityFromDatabase()
+   fun addPoint(point: StopPointData) {
+      viewModelScope.launch(Dispatchers.IO) {
+         repository.addPoint(point)
       }
-   }
-
-   private suspend fun getMapCityFromDatabase(): MapBusData? {
-      return withContext(Dispatchers.IO) {
-         val city = dataBase.getTocity()
-         /* if (city?.latitude != city?.longitude) {
-              city = null
-          }*/
-         city
-      }
-   }
-
-
-   fun onSetPointMap(pointCity: MapBusData) {
-      uiScope.launch {
-         insert(pointCity)
-
-         toCityPoint.value = getMapCityFromDatabase()
-
-      }
-      // Setting this state variable to true will alert the observer and trigger navigation.
       _navigateToMapPoint.value = true
    }
 
-   private suspend fun insert(point: MapBusData) {
-      withContext(Dispatchers.IO) {
-         dataBase.insert(point)
 
-         toCityPoint.postValue(getMapCityFromDatabase())
-         //refresh data
+   fun updatePoints(point: StopPointData) {
+      viewModelScope.launch(Dispatchers.IO) {
+         repository.updatePoints(point)
+      }
+   }
+
+   fun deletePoint(point: StopPointData) {
+      viewModelScope.launch(Dispatchers.IO) {
+         repository.deletePoint(point)
+      }
+   }
+
+   fun deleteAllPoints() {
+      viewModelScope.launch(Dispatchers.IO) {
+         repository.deleteAllPoints()
       }
    }
 
