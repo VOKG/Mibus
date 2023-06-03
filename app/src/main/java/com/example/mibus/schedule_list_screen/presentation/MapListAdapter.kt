@@ -3,12 +3,14 @@ package com.example.mibus.schedule_list_screen
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mibus.R
 import com.example.mibus.model.StopPointData
 import com.example.mibus.databinding.ListItemCityBinding
+import com.example.mibus.schedule_list_screen.presentation.MapListFragmentDirections
 
 
 class MapListAdapter(private val clickListener: MapListListener) :
@@ -33,7 +35,10 @@ class MapListAdapter(private val clickListener: MapListListener) :
          binding.clickListener = clickListener
          binding.textView4.text = item.latitude.toString()
          binding.textView.text = item.latitude.toString()
-         binding.imageView3.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.screenEditorScheduleFragmentId))
+         binding.imageView3.setOnClickListener{
+            val action = MapListFragmentDirections.actionMapListFragmentToUpdateEditorFragment(item)
+            binding.imageView3.findNavController().navigate(action)
+         }
 
       }
 
@@ -61,8 +66,8 @@ class MapListDiffCallback : DiffUtil.ItemCallback<StopPointData>() {
    }
 }
 
-class MapListListener(val clickListener: (itemView: Long) -> Unit) {
-   fun onClick(city: StopPointData) = clickListener(city.mapId)
+class MapListListener(val clickListener: (itemView: StopPointData) -> Unit) {
+   fun onClick(city: StopPointData) = clickListener(city)
 }
 
 

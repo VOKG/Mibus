@@ -17,7 +17,7 @@ import com.example.mibus.model.StopPointData
 import timber.log.Timber
 
 
-const val TAG: String = " Thread 1 "
+const val TAG: String = " Thread 1" // Thread new
 
 class ScreenEditorScheduleFragment : Fragment() {
 
@@ -48,15 +48,14 @@ class ScreenEditorScheduleFragment : Fragment() {
 
       fun addDataTextEdit() {
          val list = arrayListOf<Double>()
-         val mapPoint = StopPointData()
-       /*  val mapPoint = StopPointData().also {
+       val mapPoint = StopPointData().also {
             it.latitude = text.toString().toDouble()
             it.longitude = title.toString().toDouble()
             it.title = "newPoint"
-         }*/
+         }
 
 
-         if (mapPoint.latitude == 0.0 || mapPoint.longitude == 0.0) {
+        /* if (mapPoint.latitude == 0.0 || mapPoint.longitude == 0.0) {
             val mapPointis = StopPointData(2,1.0,1.0,"One")
             mapBusListViewModel.addPoint(mapPointis)
             Toast.makeText(application, "CREATE ITEM", Toast.LENGTH_SHORT).show()
@@ -64,9 +63,9 @@ class ScreenEditorScheduleFragment : Fragment() {
             val mapPointisNull = StopPointData(2,1.0,1.0,"One")
             Toast.makeText(application, "NOT Value", Toast.LENGTH_SHORT).show()
 
-            mapBusListViewModel.addPoint(mapPointisNull)
-         }
+         }*/
 
+         mapBusListViewModel.addPoint(mapPoint)
          Timber.tag(TAG).d("click")
 
       }

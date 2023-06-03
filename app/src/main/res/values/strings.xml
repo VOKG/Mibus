@@ -7,19 +7,21 @@
    <string name="user_btn"><![CDATA[MAP ->]]></string>
    <string name="btn_map_return">USER INFO</string>
    <string name="btn_map_data">New </string>
-   <string name="btn_done">DONE</string>
-   <string name="btn_delete">DELETE</string>
    <string name="name_bus_string">Name bus </string>
    <string name="sub_name_bus_string">SubName bus </string>
    <string name="map_toolbar_title">"MAP USER "</string>
    <string name="app_info_git">https://github.com/VOKG/Mibus</string>
+   <!-- TODO: Button text -->
+   <string name="btn_clear">CLEAR</string>
+   <string name="btn_push_list">LIST</string>
+   <string name="btn_done">DONE</string>
+   <string name="btn_delete">DELETE</string>
+   <string name="btn_update">UPDATE</string>
+   <string name="btn_new_element_list">NEW CITY</string>
+   <!-- TODO: View text -->
    <string name="text_authorization">Authorization</string>
    <string name="name_app_mibus">MiBus</string>
    <string name="user_info">User info</string>
-   <string name="btn_clear">CLEAR</string>
-   <string name="btn_push_list">LIST</string>
-   <string name="btn_new_element_list">NEW CITY</string>
-   <!-- TODO: Remove or change this placeholder text -->
    <string name="view_latitude"> Latitude</string>
    <string name="view_longitude">Longitude</string>
    <string name="View_title">Title</string>
