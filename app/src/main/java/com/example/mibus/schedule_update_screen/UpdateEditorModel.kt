@@ -3,27 +3,32 @@ package com.example.mibus.schedule_update_screen
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.mibus.LiveDataDelegate
 import com.example.mibus.Repository.MapBusRepository
 import com.example.mibus.database.StopPointDataBase
 import com.example.mibus.model.StopPointData
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class UpdateEditorMod
+class UpdateEditorModel
    (
-   private val pointId: Long = 0L, application: Application
+   application: Application
 ) : AndroidViewModel(application) {
 
    private val point = MediatorLiveData<StopPointData>()
    private val repository: MapBusRepository // fun getPoint() = poinr
+   fun getPoint() = point
 
    init {
       val listPoints = StopPointDataBase.getInstance(application).stopPointDataDao()
       repository = MapBusRepository(listPoints) // переименовать
-      // readAllData = repository.readAllData
-      point.addSource(
-         //  readPointData = repository.getPointId()
-         repository.getPointId(pointId), point::setValue
-      )//getCityWithId(mapPointKey), point::setValue*/
+
    }
 
+   fun deletePoint(point:StopPointData){
+      viewModelScope.launch(Dispatchers.IO) {
+         repository.deletePoint(point)
+      }
+   }
 }
